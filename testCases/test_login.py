@@ -17,6 +17,7 @@ class Test_01_Login:
     # logs
     logger = LogGen.loggen()
 
+    @pytest.mark.regression
     def test_homePageTitle(self, setup):
 
         self.logger.info("********Test_01******")
@@ -36,7 +37,8 @@ class Test_01_Login:
             assert False
             self.driver.close()
             self.logger.info("********if it is fail*********")
-
+    @pytest.mark.sanity
+    @pytest.mark.regression
     def test_login(self, setup):
         self.logger.info("*******Verify Login Test **********")
         # self.driver = webdriver.Chrome(ChromeDriverManager().install())
