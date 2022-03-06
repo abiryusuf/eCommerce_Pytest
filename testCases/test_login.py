@@ -6,10 +6,11 @@ from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 
 class Test_01_Login:
-    # baseURL = "https://admin-demo.nopcommerce.com/"
+    baseURL = "https://admin-demo.nopcommerce.com/"
     # username = "admin@yourstore.com"
     # password = "admin"
     # step 5
+
     baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUserEmail()
     password = ReadConfig.getUserPassword()
@@ -24,6 +25,7 @@ class Test_01_Login:
         self.logger.info("*******Verify Home page Title*********")
         self.driver = setup
         self.driver.get(self.baseURL)
+        # self.driver.get("https://admin-demo.nopcommerce.com/")
         act_title = self.driver.title
         # self.driver.close()
 
@@ -45,8 +47,10 @@ class Test_01_Login:
         # or
         self.driver = setup
         self.driver.get(self.baseURL)
+        # self.driver.get("https://admin-demo.nopcommerce.com/")
         # create an object for POM
         self.lp = LoginPage(self.driver)
+
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()

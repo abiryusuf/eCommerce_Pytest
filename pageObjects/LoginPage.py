@@ -5,6 +5,7 @@ class LoginPage:
     button_login = "//*[@class='button-1 login-button']"
     link_logout_linkText = "Logout"
 
+    # constructor
     def __init__(self, driver):
         self.driver = driver
 

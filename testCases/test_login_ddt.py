@@ -20,11 +20,11 @@ class Test_002_DDT_Login():
         self.lp = LoginPage(self.driver)
 
         self.rows = XLUtils.getRowCount(self.path, 'Sheet1')
-        print('Number of rows...',self.rows)
-        lst_status=[]
+        print('Number of rows...', self.rows)
+        lst_status = []
 
-        for r in range(2,self.rows+1):
-            self.user=XLUtils.readData(self.path,'Sheet1',r,1)
+        for r in range(2, self.rows+1):
+            self.user = XLUtils.readData(self.path, 'Sheet1', r, 1)
             self.password = XLUtils.readData(self.path, 'Sheet1', r, 2)
             self.exp = XLUtils.readData(self.path, 'Sheet1', r, 3)
 
@@ -33,8 +33,8 @@ class Test_002_DDT_Login():
             self.lp.clickLogin()
             time.sleep(5)
 
-            act_title=self.driver.title
-            exp_title="Dashboard / nopCommerce administration"
+            act_title = self.driver.title
+            exp_title = "Dashboard / nopCommerce administration"
 
             if act_title==exp_title:
                 if self.exp=='Pass':
